@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  debian11-cis:
+    container_name: debian11-cis-hardened
+    build:
+      context: ./
+    stdin_open: true 
+    tty: true
+    entrypoint: ["/bin/bash"]
+    privileged: true
+    volumes:
+      # - ./debian-cis:/opt/cis-hardening/
+      - ./conf.d:/opt/cis-hardening/etc/conf.d
